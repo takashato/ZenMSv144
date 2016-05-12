@@ -1500,23 +1500,6 @@ public class NPCConversationManager extends AbstractPlayerInteraction {
         c.getPlayer().setAndroid(c.getPlayer().getAndroid());        
     }  
 
-    public int getAndroidStat(final String type) {
-        switch (type) {
-            case "HAIR":
-                return c.getPlayer().getAndroid().getHair();
-            case "FACE":
-                return c.getPlayer().getAndroid().getFace();
-            case "GENDER":
-                int itemid = c.getPlayer().getAndroid().getItemId();
-                if (itemid == 1662000 || itemid == 1662002) {
-                    return 0;
-                } else {
-                    return 1;
-                }
-        }
-        return -1;
-    }
-
     public void reloadChar() {
         getPlayer().getClient().getSession().write(CField.getCharInfo(getPlayer()));
         getPlayer().getMap().removePlayer(getPlayer());

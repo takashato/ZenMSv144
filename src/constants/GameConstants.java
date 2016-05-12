@@ -1371,11 +1371,11 @@ public class GameConstants {
     }
 
     public static boolean isCleanSlate(int itemId) {
-        return itemId / 100 == 20490;
+        return itemId / 100 == 20490 || itemId / 100 == 20496;
     }
 
     public static boolean isAccessoryScroll(int itemId) {
-        return itemId / 100 == 20492;
+        return itemId / 100 == 20492 || itemId / 100 == 20468;
     }
 
     public static boolean isChaosScroll(int itemId) {
@@ -1390,7 +1390,7 @@ public class GameConstants {
     }
 
     public static boolean isEquipScroll(int scrollId) {
-        return scrollId / 100 == 20493;
+        return scrollId / 100 == 20479 || scrollId / 100 ==20478 || scrollId / 100 == 26400 || scrollId == 26120 || scrollId / 100 == 20493;
     }
 
     public static boolean isPotentialScroll(int scrollId) {

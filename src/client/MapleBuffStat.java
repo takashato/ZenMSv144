@@ -192,7 +192,7 @@ public enum MapleBuffStat implements Serializable, Buffstat {
     ABNORMAL_STATUS_R(0x10, 6), // %
     ELEMENTAL_STATUS_R(0x20, 6), // %
     WATER_SHIELD(0x40, 6),
-    DARK_METAMORPHOSIS(128, 6), // mob count
+    DARK_METAMORPHOSIS(0x80, 6), // mob count
     PIRATES_REVENGE(1048576, 4),
     BARREL_ROLL(0x1000, 6),
     DAMAGE_R(0x200, 6),

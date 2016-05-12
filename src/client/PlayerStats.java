@@ -904,6 +904,8 @@ public class PlayerStats implements Serializable {
                     chra.getTrait(MapleTraitType.will).addLocalExp(GameConstants.getTraitExpNeededForLevel(eff.getY()));
                     chra.getTrait(MapleTraitType.charisma).addLocalExp(GameConstants.getTraitExpNeededForLevel(eff.getZ()));
                 }
+                
+                // Demon Slayer Weird Problem
                 bx = SkillFactory.getSkill(30010111);
                 bof = chra.getTotalSkillLevel(bx);
                 if (bof > 0) {
@@ -911,12 +913,14 @@ public class PlayerStats implements Serializable {
                     hpRecoverPercent += eff.getX();
                     hpRecoverProp += eff.getProb(); //yes
                 }
-                                bx = SkillFactory.getSkill(31110009);
+                bx = SkillFactory.getSkill(31110009);
                 bof = chra.getTotalSkillLevel(bx);
                 if (bof > 0) {
                     eff = bx.getEffect(bof);
                     localmaxmp += eff.getMaxDemonFury(); //yes
                 }
+                
+                
                 break;
             case 3002:
             case 3600:
@@ -3652,8 +3656,8 @@ public class PlayerStats implements Serializable {
         if (tmp < 0) {
             tmp = 0;
         }
-        if (tmp > localmaxmp) {
-            tmp = localmaxmp;
+        if (tmp > maxmp) {
+            tmp = maxmp;
         }
         this.mp = tmp;
         return mp != oldMp;

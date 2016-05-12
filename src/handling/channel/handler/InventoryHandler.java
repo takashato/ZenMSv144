@@ -4224,7 +4224,28 @@ case 2431935: {
                 used = true;
                 break;
             }
-            case 5170000: { // Pet name change
+            case 5170000: { // Pet name change                
+                MaplePet pet = c.getPlayer().getPet(0);               
+
+                if (pet == null) { 
+                    break; 
+                }               
+                String nName = slea.readMapleAsciiString(); 
+                for (String z : GameConstants.RESERVED) { 
+                    if (pet.getName().indexOf(z) != -1 || nName.indexOf(z) != -1) { 
+                        break; 
+                    } 
+                } 
+                if (MapleCharacterUtil.canChangePetName(nName)) { 
+                    pet.setName(nName); 
+                    c.getSession().write(PetPacket.updatePet(pet, c.getPlayer().getInventory(MapleInventoryType.CASH).getItem((byte) pet.getInventoryPosition()), true)); 
+                    c.getSession().write(CWvsContext.enableActions());  
+                    c.getPlayer().getMap().broadcastMessage(CSPacket.changePetName(c.getPlayer(), nName, 0)); 
+                    used = true; 
+                } 
+                break; 
+            }  
+            /*case 5170000: { // Pet name change
                 final int uniqueid = (int) slea.readLong();
                 MaplePet pet = c.getPlayer().getPet(0);
                 int slo = 0;
@@ -4265,7 +4286,7 @@ case 2431935: {
                     used = true;
                 }
                 break;
-            }
+            }*/
             case 5700000: {
                 slea.skip(8);
                 if (c.getPlayer().getAndroid() == null) {
@@ -4280,6 +4301,7 @@ case 2431935: {
                 if (MapleCharacterUtil.canChangePetName(nName)) {
                     c.getPlayer().getAndroid().setName(nName);
                     c.getPlayer().setAndroid(c.getPlayer().getAndroid()); //respawn it
+                    c.getPlayer().getAndroid().saveToDb();
                     used = true;
                 }
                 break;

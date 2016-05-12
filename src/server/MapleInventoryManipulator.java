@@ -4,6 +4,7 @@ import client.MapleBuffStat;
 import client.MapleCharacter;
 import client.MapleClient;
 import client.MapleQuestStatus;
+import client.MapleStat;
 import client.MapleTrait.MapleTraitType;
 import client.PlayerStats;
 import client.Skill;
@@ -887,7 +888,28 @@ public class MapleInventoryManipulator {
         //chr.finishAchievement(40);
     } else if (source.getItemId() == 1122017) {
         chr.startFairySchedule(true, true);
-    }
+    } // Demon Shield Add-on by Takashato 12/05/2016
+    /*else if(source.getItemId() / 10 == 109900)
+    {
+        switch(source.getItemId() % 10)
+        {
+            case 1: // Job 1st shield
+                    c.getPlayer().getStat().maxhp=GameConstants.getMPByJob(c.getPlayer().getJob())+20;
+               break;
+            case 2: // Job 2nd shield
+                    c.getPlayer().getStat().maxhp=GameConstants.getMPByJob(c.getPlayer().getJob())+50;
+               break;
+            case 3: // Job 3rd shield
+                    c.getPlayer().getStat().maxhp=GameConstants.getMPByJob(c.getPlayer().getJob())+80;
+               break;
+            case 4: // Job 4th shield
+                    c.getPlayer().getStat().maxhp=GameConstants.getMPByJob(c.getPlayer().getJob())+110;
+               break;
+        }
+        
+        c.getSession().write(CWvsContext.enableActions());
+    }*/
+    
     if (source.getState() >= 17) {
         final Map<Skill, SkillEntry> ss = new HashMap<>();
         int[] potentials = {source.getPotential1(), source.getPotential2(), source.getPotential3(), source.getBonusPotential1(), source.getBonusPotential2()};
@@ -956,6 +978,29 @@ public class MapleInventoryManipulator {
         } else if (source.getItemId() == 1122017) {
             c.getPlayer().cancelFairySchedule(true);
         }
+        // Demon Shield Add-on by Takashato 12/05/2016 
+        /*
+        else if(source.getItemId() / 10 == 109900)
+        {
+            switch(source.getItemId() % 10)
+            {
+                case 1: // Job 1st shield
+                        c.getPlayer().getStat().maxhp=GameConstants.getMPByJob(c.getPlayer().getJob())-20;
+                   break;
+                case 2: // Job 2nd shield
+                        c.getPlayer().getStat().maxhp=GameConstants.getMPByJob(c.getPlayer().getJob())-50;
+                   break;
+                case 3: // Job 3rd shield
+                        c.getPlayer().getStat().maxhp=GameConstants.getMPByJob(c.getPlayer().getJob())-80;
+                   break;
+                case 4: // Job 4th shield
+                        c.getPlayer().getStat().maxhp=GameConstants.getMPByJob(c.getPlayer().getJob())-110;
+                   break;
+           }
+            
+            c.getSession().write(CWvsContext.enableActions());
+        } */
+        
         MapleItemInformationProvider ii = MapleItemInformationProvider.getInstance();
         if (source.getState() >= 17) {
             final Map<Skill, SkillEntry> ss = new HashMap<>();

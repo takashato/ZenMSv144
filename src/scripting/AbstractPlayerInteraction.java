@@ -161,6 +161,23 @@ public abstract class AbstractPlayerInteraction {
         }
     }
 
+    public int getAndroidStat(final String type) {
+        switch (type) {
+            case "HAIR":
+                return c.getPlayer().getAndroid().getHair();
+            case "FACE":
+                return c.getPlayer().getAndroid().getFace();
+            case "GENDER":
+                int itemid = c.getPlayer().getAndroid().getItemId();
+                if (itemid == 1662000 || itemid == 1662002) {
+                    return 0;
+                } else {
+                    return 1;
+                }
+        }
+        return -1;
+    }
+    
     public final void warpS(final int map, String portal) {
         final MapleMap mapz = getWarpMap(map);
         if (map == 109060000 || map == 109060002 || map == 109060004) {
