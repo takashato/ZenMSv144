@@ -325,7 +325,10 @@ public enum MapleBuffStat implements Serializable, Buffstat {
     HAKU_BLESS(0x8000, 12),
     BEARASSAULT(0x6000, 1),
     ANIMAL_SELECT(0x100000, 12),
+    MAXHEAL(0x2000, 1), // Fixed 14/05/2016
+    HAYATOHP(0x20, 12), // Fixed 14/05/2016
     ASURA(0x10000, 9);
+    
     private static final long serialVersionUID = 0L;
     private final int buffstat;
     private final int first;

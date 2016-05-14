@@ -112,6 +112,8 @@ public enum MapleStatInfo {
     luk2dex(0), //Convert LUK to DEX
     lukFX(0), //Increase LUK
     lukX(0), //Increase LUK
+    lv2mhp(0), // Fixed 14/05/2016
+    lv2mmp(0), // Fixed 14/05/2016
     lv2damX(0), //Additional damage per character level
     lv2mad(0), //Additional magic damage per character level
     lv2mdX(0), //Additional magic defense per character level

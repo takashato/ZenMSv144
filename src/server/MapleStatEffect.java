@@ -3586,6 +3586,7 @@ public class MapleStatEffect implements Serializable {
         return inflation;
     }
 
+
     public final boolean isEnergyCharge() {
         return skill && (sourceid == 5110001 || sourceid == 15100004);
     }
@@ -4571,6 +4572,24 @@ private boolean isSpiritClaw() {
     
     public int getWeapon() {
         return weapon;
+    }
+    
+        
+    // Fixed: 14/05/2016
+    public final int getmhpR() {
+        return info.get(MapleStatInfo.mhpR);
+    }
+    
+    public final int getmmpR() {
+        return info.get(MapleStatInfo.mmpR);
+    }
+    
+    public final int getlv2mhp() {
+        return info.get(MapleStatInfo.lv2mhp);
+    }
+    
+    public final int getlv2mmp(){
+        return info.get(MapleStatInfo.lv2mmp);      
     }
 
     public static class CancelEffectAction implements Runnable {

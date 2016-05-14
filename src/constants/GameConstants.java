@@ -422,6 +422,26 @@ public class GameConstants {
         return job == 1300 || (job >= 1310 && job <= 1312);
     }
     
+    public static boolean isWarrior(final int job)
+    {
+        return job >= 100 && job <= 132;
+    }
+    
+    public static boolean isMagican(final int job)
+    {
+        return job >= 200 && job <= 232;
+    }
+    
+    public static boolean isBow(final int job)
+    {
+        return job >= 300 && job <= 322;
+    }
+    
+    public static boolean isPir(final int job)
+    {
+        return job >= 500 && job <= 522;
+    }
+    
 //    public static boolean isSeparatedSp(int job) {
 ////        System.err.println(job);
 ////        System.err.println(isSeparatedSp(job));
